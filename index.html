@@ -65,6 +65,12 @@ button:hover {
   color: #38bdf8;
 }
 
+.subtext {
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
 .notice {
   margin-top: 20px;
   font-size: 14px;
@@ -72,10 +78,17 @@ button:hover {
 }
 
 .footer {
-  margin-top: 36px;
+  margin-top: 28px;
   font-size: 11px;
   line-height: 1.4;
-  opacity: 0.6;
+  opacity: 0.55;
+}
+
+.privacy-note {
+  margin-top: 12px;
+  font-size: 10px;
+  line-height: 1.4;
+  opacity: 0.45;
 }
 
 @keyframes reveal {
@@ -94,6 +107,7 @@ button:hover {
   <div class="card" id="resultCard">
     <div class="title">CONGRATULATIONS</div>
     <div class="amount" id="amount"></div>
+    <div class="subtext">Discount on your coming offer</div>
   </div>
 
   <div class="notice" id="notice"></div>
@@ -102,6 +116,11 @@ button:hover {
     This promotion is for marketing purposes only.<br>
     Rewards are non-transferable and subject to final confirmation.
   </div>
+
+  <div class="privacy-note">
+    This page uses local storage solely to prevent repeated participation.
+  </div>
+
 </div>
 
 <script>
@@ -122,7 +141,6 @@ function showResult(amount) {
   document.getElementById("resultCard").style.display = "flex";
 }
 
-// 页面加载时检查是否已经抽过
 window.onload = () => {
   const savedReward = localStorage.getItem(STORAGE_KEY);
   if (savedReward) {
