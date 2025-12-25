@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Congratulations</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 18px 48px;
+  font-size: 22px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #38bdf8, #6366f1);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  width: 320px;
+  height: 180px;
+  background: #111827;
+  border-radius: 18px;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: flip 1s ease forwards;
+}
+
+.card .title {
+  font-size: 22px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+.card .amount {
+  font-size: 48px;
+  font-weight: bold;
+  color: #38bdf8;
+}
+
+@keyframes flip {
+  0% { transform: rotateY(0deg) scale(0.2); opacity: 0; }
+  100% { transform: rotateY(360deg) scale(1); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <button id="startBtn">START</button>
+
+  <div class="card" id="resultCard">
+    <div class="title">Congratulations</div>
+    <div class="amount" id="amount"></div>
+  </div>
+</div>
+
+<script>
+const rewards = [
+  "$10",
+  "$20",
+  "$50",
+  "$60",
+  "$80",
+  "$100"
+];
+
+document.getElementById("startBtn").onclick = () => {
+  const result = rewards[Math.floor(Math.random() * rewards.length)];
+  document.getElementById("startBtn").style.display = "none";
+  document.getElementById("amount").innerText = result;
+  document.getElementById("resultCard").style.display = "flex";
+};
+</script>
+</body>
+</html>
